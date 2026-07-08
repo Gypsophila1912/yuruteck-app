@@ -1,0 +1,35 @@
+# CodeRabbit 設定ファイル
+# 参考: https://coderabbit.ai/docs
+
+# レビューコメントの言語を日本語に設定
+language: "ja-JP"
+
+reviews:
+  # レビューのトーン: assertive（厳格）/ chill（ゆるめ）
+  profile: "chill"
+
+  # ドラフトPRはレビューしない
+  ignore_draft_prs: true
+
+  # レビュー対象外のファイルパターン
+  path_filters:
+    - "!pnpm-lock.yaml"
+    - "!*.md"
+    - "!.next/**"
+
+  # ファイルやディレクトリごとのレビュー観点
+  path_instructions:
+    - path: "src/db/schema.ts"
+      instructions: |
+        Drizzle ORMのスキーマです。
+        - リレーション定義の整合性を確認してください
+        - uniqueIndex・indexの設定漏れがないか確認してください
+    - path: "src/**/*.tsx"
+      instructions: |
+        Next.js (App Router) のコンポーネントです。
+        - Server ComponentとClient Componentの使い分けが適切か確認してください
+        - shadcn/uiのコンポーネントを適切に使用しているか確認してください
+
+chat:
+  # PRコメントへの自動返信を有効化
+  auto_reply: true
