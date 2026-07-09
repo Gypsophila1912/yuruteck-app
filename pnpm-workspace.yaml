@@ -2,4 +2,9 @@ ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
 
+onlyBuiltDependencies:
+  - esbuild
+  - workerd
+  - lefthook
+
 minimumReleaseAge: 0
