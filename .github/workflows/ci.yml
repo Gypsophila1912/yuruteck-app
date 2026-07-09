@@ -26,7 +26,8 @@ jobs:
           cache: pnpm
 
       - name: 依存関係をインストール
-        run: pnpm install --frozen-lockfile; exit 0
+        run: pnpm install --frozen-lockfile
+        continue-on-error: true
 
       - name: Lint
         run: pnpm lint
