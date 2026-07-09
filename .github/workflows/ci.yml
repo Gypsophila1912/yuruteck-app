@@ -25,10 +25,11 @@ jobs:
           node-version: 22
           cache: pnpm
 
+      - name: pnpmポリシーを設定（CI用）
+        run: echo "minimum-package-age=0" >> .npmrc
+
       - name: 依存関係をインストール
         run: pnpm install --frozen-lockfile
-        env:
-          NPM_CONFIG_MINIMUM_PACKAGE_AGE: "0"
 
       - name: Lint
         run: pnpm lint
