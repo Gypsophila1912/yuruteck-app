@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "yuruteck-app",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-07-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "triggers": {
+    "crons": [],
+  },
+  "observability": {
+    "enabled": true,
+  },
+  // ミドルウェアマニフェストのDynamic require問題を回避
+  // Next.js 16 + OpenNext の既知の互換性問題への対処
+  "vars": {
+    "NEXT_PRIVATE_MINIMAL_MODE": "1",
+  },
+}
