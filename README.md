@@ -7,3 +7,10 @@ components/featuresは自分で作ったcomponent置き場
 components/uiはchadcn/uiが作成したコンポーネント置き場
 
 https://catnose99.github.io/quiet-internet-api-docs/
+
+## 今回ハマったポイントのメモ
+
+issue4にてデプロイ関連で詰まったとこ
+Windowsでのシンボリックリンク → Developer Mode または 管理者実行 が必要
+Node.js v20 → v22以上 が必要（Wrangler v4の要件）
+Next.js 16 のデフォルト Turbopack → --webpack フラグで回避
