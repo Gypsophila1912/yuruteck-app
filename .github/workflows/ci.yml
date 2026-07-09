@@ -27,7 +27,6 @@ jobs:
 
       - name: 依存関係をインストール
         run: pnpm install --frozen-lockfile
-        continue-on-error: true
 
       - name: Lint
         run: pnpm lint
