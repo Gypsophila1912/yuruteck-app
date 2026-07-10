@@ -1,4 +1,8 @@
-onlyBuiltDependencies:
-  - esbuild
-  - lefthook
-  - workerd
+allowBuilds:
+  esbuild: true
+  lefthook: true
+  workerd: true
+  sharp: false
+  unrs-resolver: false
+
+minimumReleaseAge: 0
