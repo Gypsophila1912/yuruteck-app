@@ -10,7 +10,16 @@ https://catnose99.github.io/quiet-internet-api-docs/
 
 ## 今回ハマったポイントのメモ
 
-issue4にてデプロイ関連で詰まったとこ
+### issue4にてデプロイ関連で詰まったとこ
+
 Windowsでのシンボリックリンク → Developer Mode または 管理者実行 が必要
 Node.js v20 → v22以上 が必要（Wrangler v4の要件）
 Next.js 16 のデフォルト Turbopack → --webpack フラグで回避
+
+### issue6でpnpmのCIで依存関係インストール時に詰まったとこ
+
+| 問題                                                    | 原因                                                                                                                | 解決策                                                 |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `ERR_PNPM_MINIMUM_RELEASE_AGE_VIOLATION`                | pnpm v11 のデフォルト24時間サプライチェーンポリシーに、`wrangler` の間接依存 `@aws-sdk/*`（公開直後）が引っかかった | `pnpm-workspace.yaml` に `minimumReleaseAge: 0` を追加 |
+| `ERR_PNPM_IGNORED_BUILDS`                               | pnpm v11 で `onlyBuiltDependencies` / `ignoredBuiltDependencies` が廃止され `allowBuilds` に統合された              | `pnpm-workspace.yaml` を `allowBuilds` 形式に移行      |
+| `[WARN] "pnpm" field in package.json is no longer read` | pnpm v11 で `package.json` の `pnpm` キーが廃止                                                                     | 設定を `pnpm-workspace.yaml` に移行                    |
