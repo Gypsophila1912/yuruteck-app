@@ -52,12 +52,5 @@
     "tsx": "^4.23.0",
     "typescript": "^5",
     "wrangler": "^4.107.1"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "lefthook",
-      "workerd"
-    ]
   }
 }
