@@ -48,5 +48,12 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "wrangler": "^4.107.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "lefthook",
+      "workerd"
+    ]
   }
 }
