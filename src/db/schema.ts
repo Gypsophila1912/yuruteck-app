@@ -65,6 +65,7 @@ export const events = mysqlTable("events", {
   startAt: datetime("start_at").notNull(),
   endAt: datetime("end_at").notNull(),
   presentationOrderJson: json("presentation_order_json").$type<string[]>(),
+  isRegular: int("is_regular").notNull().default(1), // ← 追加！ 1=通常, 0=特別
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
